@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercise-Tracker</title>
+    <link rel="icon" href="./favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Lato" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Lato', sans-serif;
+        }
+
+        h1,h2 {
+            font-family: 'Bungee', cursive;
+            letter-spacing: 2px;
+        }
+
+        .vcenter {
+            display: flex;
+            align-items: center;
+        }
+
+        .logoHeader {
+            height: 80px;
+            padding: 0 20px;
+        }
+
+        .logoHeader>img {
+            height: 50px;
+            margin-right: 25px;
+        }
+
+        .mainContainer{
+            width: 70%;
+            margin: 0 auto;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-around;
+            margin-top: 50px;
+        }
+        .formContainer{
+            width: 400px;
+            padding: 20px;
+            box-shadow: 0 0 10px #2323;
+        }
+        form{
+            display:flex;
+            flex-direction: column;
+        }
+        form > label {
+            font-weight: bolder;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+        form > input{
+            height:40px;
+            width:100%;
+            border:2px solid;
+            margin:8px 0;
+            padding:8px;
+            font-size:14px;
+            letter-spacing:2px;
+        }
+        input[type="submit"]{
+            margin:0 auto;
+            margin-top:16px;
+            cursor:pointer;
+            background:black;
+            color:white;
+        }
+    </style>
+</head>
+
+<body>
+    <% include partials/header %>
+    <div class="mainContainer">
+        <div class="formContainer">
+            <h2>CREATE NEW USER</h2>
+            <form action="http://localhost:3000/api/exercise/new-user" method="post">
+                <label for="username">USERNAME</label>
+                <input type="text" name="username" placeholder="Enter Username" required>
+                <input type="submit" value= "Submit">
+            </form>
+        </div>
+        <div class="formContainer">
+            <h2>ADD EXERCISES</h2>
+            <form action="http://localhost:3000/api/exercise/add" method="post">
+                <label for="userId">USER ID *</label>
+                <input type="text" name="userId" placeholder="Enter your User Id" required>
+                <label for="description">DESCRIPTION</label>
+                <input type="text" name="description" placeholder="Enter activity description" required>
+                <label for="duration">DURATION</label>
+                <input type="text" name="duration" placeholder="Enter activity duration" required>
+                <label for="date">DATE</label>
+                <input type="text" name="date" placeholder="Enter activity Date">
+                <input type="submit" value= "Submit">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

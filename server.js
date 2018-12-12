@@ -4,6 +4,7 @@ const {
 } = require('./db');
 const app = express();
 
+app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({
     extended: false
@@ -14,6 +15,9 @@ app.use('/api', require('./routes/index'));
 require('dotenv').config();
 const port = process.env.PORT || 3000;
 
+app.get('/', (req, res) => {
+    return res.render('index')
+})
 db.sync()
     .then(() => {
 
